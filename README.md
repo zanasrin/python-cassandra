@@ -12,7 +12,7 @@ This quickstart demonstrates how to write python samples and connect it to your 
 ## Running this sample
 * Before you can run this sample, you must have the following perquisites:
 	* An active Azure DocumentDB account - If you don't have an account, refer to the [Create a DocumentDB account](https://azure.microsoft.com/en-us/documentation/articles/documentdb-create-account/) article.
-	* [Python 2,7].
+	* [Python 2.7].
 	* [Git](http://git-scm.com/).
 
 
