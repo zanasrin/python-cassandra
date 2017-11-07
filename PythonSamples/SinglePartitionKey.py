@@ -16,7 +16,7 @@ cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_
 session = cluster.connect()
 
 session.execute('CREATE KEYSPACE IF NOT EXISTS cycling WITH replication = {\'class\': \'SimpleStrategy\', \'replication_factor\': \'3\' }');
-session.execute('CREATE TABLE IF NOT EXISTS cycling.cyclist_name (id int, lastname text, firstname text, PRIMARY KEY id)');
+session.execute('CREATE TABLE IF NOT EXISTS cycling.cyclist_name (id int, lastname text, firstname text, PRIMARY KEY (id))');
 
 insert_data = session.prepare("INSERT INTO cycling.cyclist_name (id, lastname, firstname) VALUES (?,?,?)")
 batch = BatchStatement()
