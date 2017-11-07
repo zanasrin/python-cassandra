@@ -24,7 +24,7 @@ batch.add(insert_user, (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Car
 batch.add(insert_user, (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Phillippe GILBERT', 1))
 batch.add(insert_user, (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Daniel MARTIN', 2))
 batch.add(insert_user, (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Johan Esteban CHAVES', 3))
-batch.add(insert_user, (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Daniel MARTIN', 2))
+batch.add(insert_user, (2013, 'Giro d\'\'Italia - Stage 11 - Forli > Imola', 'Daniel MARTIN', 2))
 
 batch.add(SimpleStatement("UPDATE cycling.rank_by_year_and_name set cyclist_name = \'name-changed\' where race_year = 2013 and race_name = \'Giro d\'\'Italia - Stage 11 - Forli > Imola\' and rank = 2"))
 batch.add(SimpleStatement("UPDATE cycling.rank_by_year_and_name set cyclist_name = \'name-changed1\' where race_year = 2014 and race_name = \'4th Tour of Beijing\' and rank = 2"))
