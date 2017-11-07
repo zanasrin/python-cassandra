@@ -18,7 +18,7 @@ This quickstart demonstrates how to write python samples and connect it to your 
 
 1. Clone this repository using `https://github.com/zanasrin/python-cassandra.git`
 
-2. Go to Samples folder.
+2. Go to PythonSamples folder.
 
 3. Next, substitute the endpoint and authorization key in `config.py` with your Cosmos DB account's values.
 
