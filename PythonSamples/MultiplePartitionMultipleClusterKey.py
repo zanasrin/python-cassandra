@@ -49,7 +49,7 @@ rows = session.execute('SELECT * FROM Music.playlists LIMIT 3')
 PrintTable(rows)
 
 print "\nSelect with comparison operator"
-rows = session.execute('SELECT * FROM Music.playlists where votes > 4000')
+rows = session.execute('SELECT * FROM Music.playlists where votes > 4000 ALLOW FILTERING')
 PrintTable(rows)
 
 print "\nDelete Row"
