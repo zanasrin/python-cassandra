@@ -37,7 +37,7 @@ rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name')
 PrintTable(rows)
 
 print "\nSelect Using One Partition key"
-rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name where race_year = 2014')
+rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name where race_year = 2014 ALLOW FILTERING')
 PrintTable(rows)
 
 print "\nSelect Using Both Partition keys"
@@ -45,7 +45,7 @@ rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name where race_y
 PrintTable(rows)
 
 print "\nAllow Filtering"
-rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name where cyclist_name = \'Daniel MARTIN\'')
+rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name where cyclist_name = \'Daniel MARTIN\' ALLOW FILTERING')
 PrintTable(rows)
 
 print "\nUpdate One Row"
