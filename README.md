@@ -37,5 +37,5 @@ The code included in this sample is intended to get you quickly started with a p
 ## More information
 
 - [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
-- [Azure DocumentDB Node.js SDK](https://docs.microsoft.com/azure/documentdb/documentdb-sdk-node)
-- [Azure DocumentDB Node.js SDK Reference Documentation](http://azure.github.io/azure-documentdb-node/)
+- [Azure DocumentDB Python SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-python)
+
