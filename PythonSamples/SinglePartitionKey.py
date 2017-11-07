@@ -40,7 +40,7 @@ rows = session.execute('SELECT * FROM cycling.cyclist_name where id = 1')
 PrintTable(rows)
 
 print "\nAllow filtering"
-rows = session.execute('SELECT * FROM cycling.cyclist_name where firstname = \'Daniel\'')
+rows = session.execute('SELECT * FROM cycling.cyclist_name where firstname = \'Daniel\' ALLOW FILTERING')
 PrintTable(rows)
 
 print "\nUpdate One Row"
