@@ -34,7 +34,7 @@ rows = session.execute('SELECT * FROM Music.playlists')
 PrintTable(rows)
 
 print "\nSelect Using One Partition key"
-rows = session.execute('SELECT * FROM Music.playlists where artist_name = \'Maroon 5\'')
+rows = session.execute('SELECT * FROM Music.playlists where artist_name = \'Maroon 5\' ALLOW FILTERING')
 PrintTable(rows)
 
 print "\nUpdate One Row"
