@@ -27,9 +27,18 @@ This quickstart demonstrates how to write python samples and connect it to your 
 	password = "~your auth key here~";
 	```
 
-4. Run `pip install Cassandra-driver` in a terminal to install required npm modules
+4. Run 
+   ```
+   pip install Cassandra-driver 
+   pip install prettytable
+   pip install requests
+   pip install pyopenssl
+   ```
+   in a terminal to install required python packages
  
 5. Run `python FileName.py` in a terminal to execute it.
+
+6. If you have a self signed certificate with which you want to verify the server certificate while connecting to the cluster using SSL, add the path of the cert in the config file `config.py` with the keyname as `selfsigned_cert`
 
 ## About the code
 The code included in this sample is intended to get you quickly started with a python program that connects to Azure Cosmos DB with the Cassandra API.
