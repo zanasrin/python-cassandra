@@ -18,6 +18,10 @@ ssl_opts = {
 }
 if 'selfsigned_cert' in cfg.config:
     ssl_opts['ca_certs'] = cfg.config['selfsigned_cert']
+auth_provider = PlainTextAuthProvider(
+        username=cfg.config['username'], password=cfg.config['password'])
+cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
+session = cluster.connect()
 
 print "\nSchema keyspaces by query"
 rows = session.execute('SELECT * FROM system_schema.keyspaces')
