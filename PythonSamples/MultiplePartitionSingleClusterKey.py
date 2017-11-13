@@ -58,7 +58,7 @@ rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name where cyclis
 PrintTable(rows)
 
 print "\nUpdate One Row"
-session.execute('Update cycling.rank_by_year_and_name set rank = -1  where race_year = 2015 and race_name = \'Tour of Japan - Stage 4 - Minami > Shinshu\'')
+session.execute('Update cycling.rank_by_year_and_name set set cyclist_name = \'changed_Name\'  where race_year = 2015 and race_name = \'Tour of Japan - Stage 4 - Minami > Shinshu\' and rank = 1')
 
 print "\nOrder by Descending"
 rows = session.execute('SELECT * FROM cycling.rank_by_year_and_name order by rank DESC')
