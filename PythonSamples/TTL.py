@@ -4,16 +4,25 @@ import config as cfg
 from cassandra.query import BatchStatement, SimpleStatement
 from prettytable import PrettyTable
 import time
+from ssl import PROTOCOL_TLSv1_2
+from requests.utils import DEFAULT_CA_BUNDLE_PATH
 
 def PrintTable(rows):
     t = PrettyTable(['ID', 'RaceName', 'StartDate', 'EndDate'])
     for user_row in rows:
         t.add_row([user_row.race_id, user_row.race_name, user_row.race_start_date, user_row.race_end_date])
     print t
+    
+ssl_opts = {
+    'ca_certs': DEFAULT_CA_BUNDLE_PATH,
+    'ssl_version': PROTOCOL_TLSv1_2,
+}
+if 'selfsigned_cert' in cfg.config:
+    ssl_opts['ca_certs'] = cfg.config['selfsigned_cert']
 
 auth_provider = PlainTextAuthProvider(
         username=cfg.config['username'], password=cfg.config['password'])
-cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider)
+cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
 session = cluster.connect()
 
 session.execute('CREATE KEYSPACE IF NOT EXISTS Cycling WITH replication = {\'class\': \'SimpleStrategy\', \'replication_factor\': \'3\' }');
