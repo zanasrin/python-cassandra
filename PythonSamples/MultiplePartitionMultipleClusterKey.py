@@ -3,6 +3,8 @@ from cassandra.auth import PlainTextAuthProvider
 import config as cfg
 from cassandra.query import BatchStatement, SimpleStatement
 from prettytable import PrettyTable
+from ssl import PROTOCOL_TLSv1_2
+from requests.utils import DEFAULT_CA_BUNDLE_PATH
 
 def PrintTable(rows):
     t = PrettyTable(['Votes', 'Song Name', 'Artist Name', 'Album Name', 'Year'])
@@ -10,9 +12,16 @@ def PrintTable(rows):
         t.add_row([user_row.votes, user_row.song_name, user_row.artist_name, user_row.album_name, user_row.year])
     print t
 
+ssl_opts = {
+    'ca_certs': DEFAULT_CA_BUNDLE_PATH,
+    'ssl_version': PROTOCOL_TLSv1_2,
+}
+if 'selfsigned_cert' in cfg.config:
+    ssl_opts['ca_certs'] = cfg.config['selfsigned_cert']
+
 auth_provider = PlainTextAuthProvider(
         username=cfg.config['username'], password=cfg.config['password'])
-cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider)
+cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
 session = cluster.connect()
 
 session.execute('CREATE KEYSPACE IF NOT EXISTS Music WITH replication = {\'class\': \'SimpleStrategy\', \'replication_factor\': \'3\' }');
