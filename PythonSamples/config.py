@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-config = {'username': 'localhost',
-         'password': 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==',
-         'contactPoint': '127.0.0.1',
+config = {'username': 'testcassandrae2e',
+         'password': 'mfh0xgII3PwZze8zwPSt1QK2XB7StukA6kDzQAAZPVQwOCbLDozNowByRdRoxNWLj2uwaqwpZfe3GdFVp5QZzw==',
+         'contactPoint': 'testcassandrae2e.cassandra.cosmosdb.windows-ppe.net',
          'port':'10350'}
