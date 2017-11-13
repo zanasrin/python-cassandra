@@ -54,39 +54,39 @@ months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augus
 insert_data = session.prepare("INSERT INTO Electricity.Consumption (city, month, usage, year) VALUES (?,?,?,?)")
 
 batch = BatchStatement()
-for i in range(0, 100):
+for i in range(0, 25):
     index =  datetime.date.today().month
     batch.add(insert_data, ('London', months[(index+i)%12], 1000+(10*(i+1)), 2016-(i/12)))
 session.execute(batch)       
 
 batch = BatchStatement()
-for i in range(0, 100):
+for i in range(0, 25):
     index =  datetime.date.today().month
     batch.add(insert_data, ('New York', months[(index+i)%12], 2000+(10*(i+1)), 2016-(i/12)))
 session.execute(batch)  
 
 batch = BatchStatement()
-for i in range(0, 100):
+for i in range(0, 25):
     index =  datetime.date.today().month
     batch.add(insert_data, ('Amsterdam', months[(index+i)%12],  3000+(10*(i+1)), 2016-(i/12)))
 session.execute(batch)  
 
 batch = BatchStatement()
-for i in range(0, 100):
+for i in range(0, 25):
     index =  datetime.date.today().month
     batch.add(insert_data, ('Tokyo', months[(index+i)%12], 4000+(10*(i+1)), 2016-(i/12)))
 session.execute(batch)  
 
 batch = BatchStatement()
-for i in range(0, 100):
+for i in range(0, 25):
     index =  datetime.date.today().month
     batch.add(insert_data, ('Paris', months[(index+i)%12],  3000+(10*(i+1)), 2016-(i/12)))
 session.execute(batch)
 
 
-print "\nSelecting With Paging. Each page will fetch 100 rows"
+print "\nSelecting With Paging. Each page will fetch 20 rows"
 query = "SELECT * FROM Electricity.Consumption"
-statement = SimpleStatement(query, fetch_size = 100)
+statement = SimpleStatement(query, fetch_size = 20)
 future = session.execute_async(statement)
 handler = PagedResultHandler(future)
 handler.finished_event.wait()
